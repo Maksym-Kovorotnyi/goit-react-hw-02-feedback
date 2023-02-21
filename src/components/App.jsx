@@ -4,12 +4,12 @@ import { Statistics } from './Statistics';
 import { Section } from './SectionTitle';
 import {Notification} from './Notification'
 
+
 export default class App extends Component {
    state = {
     good: 0,
     neutral: 0,
      bad: 0,
-     total: 0,
     
   }
   handleUpdate = (e) => {
@@ -18,29 +18,34 @@ export default class App extends Component {
       case "good":
         this.setState((prevState) => ({
           good: prevState.good + 1,
-          total: prevState.total + 1,
         }));
         break;
 
       case "neutral":
         this.setState((prevState) => ({
           neutral: prevState.neutral + 1,
-          total: prevState.total + 1,
         }));
             break;
         case "bad":
             this.setState((prevState) => ({
               bad: prevState.bad + 1,
-              total: prevState.total + 1,
             }));
             break;
       default:
         throw new Error("Name doesn't exist");
     }
   };
+
+ 
+  calcTotal = () => {
+    const { good, neutral, bad } = this.state
+   return good + neutral + bad;
+     
+  }
   
   render() {
-    const { good, neutral, bad, total } = this.state;
+    const { good, neutral, bad } = this.state;
+     const total = this.calcTotal()
     const percentage = (good / total * 100).toFixed(0);
     return <>
       <Section title = 'Please leave feedback'>
