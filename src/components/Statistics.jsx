@@ -5,8 +5,8 @@ export const Statistics = ({ good, neutral, bad, total, positivePercentag }) => 
         <p className={`${css.text} ${css.good}`}>Good: {good}</p>
         <p className={`${css.text} ${css.neutral}`}>Neutral: {neutral}</p>
         <p className={`${css.text} ${css.bad}`}>Bad: {bad}</p>
-        <p className={css.text}>Total: {total}</p>
-        {total ? <p className={css.text}>Positive feedback: {positivePercentag} %</p> : <p className={css.text}>Positive feedback: 0 %</p>} 
+        <p className={css.feedback}>Total: {total}</p>
+        {total ? <p className={css.feedback}>Positive feedback: {positivePercentag} %</p> : <p className={css.text}>Positive feedback: 0 %</p>} 
 </>
 )
 
